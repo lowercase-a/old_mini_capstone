@@ -1,6 +1,9 @@
 class Api::ProductsController < ApplicationController
   def one_product
-    @product = Product.first
+    # get data from url
+    the_id = params[:product_id]
+    # grab a particular product from the db based on the data
+    @product = Product.find_by(id: the_id)
     render 'my_product.json.jbuilder'
   end
 
